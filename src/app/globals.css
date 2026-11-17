@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ground: #f6f7f9;
+  --color-ink: #16202e;
+  --color-ink-soft: #3d4756;
+  --color-muted: #55606f;
+  --color-line: #d5dbe3;
+  --color-field: #8793a3;
+  --color-accent: #0b5cad;
+  --color-accent-dark: #08467f;
+  --color-accent-soft: #e1eefb;
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+  --color-admin: #6b3a00;
+  --color-admin-soft: #fff1dc;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-space-grotesk), var(--font-inter), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-ground);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .page-title {
+    @apply font-display text-[32px] font-bold leading-tight;
+  }
+
+  .card {
+    @apply rounded-xl border border-line bg-white;
+  }
+
+  .field-label {
+    @apply text-sm font-semibold;
+  }
+
+  .field-input {
+    @apply min-h-11 w-full rounded-lg border border-field bg-white px-3 py-2;
+  }
+
+  .field-input-error {
+    @apply border-2 border-danger;
+  }
+
+  .field-hint {
+    @apply text-[13px] text-muted;
+  }
+
+  .field-error {
+    @apply text-sm font-medium text-danger;
+  }
+
+  .btn-primary {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center rounded-lg bg-accent px-6 font-semibold text-white hover:bg-accent-dark disabled:cursor-wait disabled:opacity-70;
+  }
+
+  .btn-secondary {
+    @apply inline-flex min-h-12 cursor-pointer items-center justify-center rounded-lg border border-field bg-white px-6 font-semibold text-ink hover:bg-ground;
+  }
+
+  .btn-outline {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-accent bg-white px-4 font-semibold text-accent hover:bg-accent-soft;
+  }
+
+  .btn-danger-outline {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg border border-danger bg-white px-4 font-semibold text-danger hover:bg-danger-soft;
+  }
+
+  .btn-danger {
+    @apply inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg bg-danger px-4 font-semibold text-white hover:opacity-90 disabled:cursor-wait disabled:opacity-70;
+  }
+
+  .alert-error {
+    @apply rounded-lg border border-danger bg-danger-soft px-3.5 py-3 text-sm font-medium text-[#8a1c12];
+  }
+
+  .alert-info {
+    @apply rounded-lg border border-accent bg-accent-soft px-3.5 py-3 text-sm font-medium text-[#0a3f75];
+  }
+}
